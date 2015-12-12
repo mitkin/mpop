@@ -42,7 +42,6 @@ import os
 #
 
 
-
 @given(u'data is available')
 def step_impl(context):
     import urllib2
@@ -99,3 +98,15 @@ def step_impl(context):
 def step_impl(context):
     assert(len(context.available_datasets) >= 5)
 
+
+@given(u'data, longitudes and latitudes are available')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given data, longitudes and latitudes are available')
+
+@when(u'user loads the data, coordinates, timestamp and area definition')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When user loads the data, coordinates, timestamp and area definition')
+
+@then(u'scene is resampleable')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then scene is resampleable')
