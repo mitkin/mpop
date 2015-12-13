@@ -101,7 +101,29 @@ def step_impl(context):
 
 @given(u'data, longitudes and latitudes are available')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Given data, longitudes and latitudes are available')
+    import numpy
+    # we have some fancy donut shaped data
+    xx, yy = numpy.mgrid[:200, :200]
+    circle = (xx - 100) ** 2 + (yy - 100) ** 2
+    donut_data = numpy.logical_and(circle < (6400 + 60), circle > (6400 - 60))
+
+    # The data comes from somewhere around Gulf of Finland
+    lon_range = numpy.arange(25, 35, 200)
+    lat_range = numpy.arange(55, 65, 200)
+    lons, lats = numpy.meshgrid(lon_range, lat_range)
+
+    context.lons = lons
+    context.lats = lats
+    context.data = donut_data
+
+@given(u'area definition is available')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given area definition is available')
+
+@given(u'timestamp is available')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given timestamp is available')
+
 
 @when(u'user loads the data, coordinates, timestamp and area definition')
 def step_impl(context):

@@ -14,5 +14,7 @@ Feature: Make scene from scratch
 
     Scenario: User can initialize, populate and resample Scene step by step
         Given data, longitudes and latitudes are available
+        Given area definition is available
+        Given timestamp is available
         When user loads the data, coordinates, timestamp and area definition
         Then scene is resampleable
