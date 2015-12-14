@@ -118,7 +118,23 @@ def step_impl(context):
 
 @given(u'area definition is available')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Given area definition is available')
+    from pyresample import geometry
+    area_id = 'test-area'
+    name = 'Test Area'
+    proj_id = 'test-area'
+    proj_dict = {'proj': 'laea', 'lat_0':'60', 'lon_0':'30', 'a':'6371228.0', 'units':'m'}
+    x_size = 1000
+    y_size = 1000
+    area_extent = (-319929.9787432588, -544766.0133604591, 319929.9787432582, 566082.4534703239)
+    area_def = geometry.AreaDefinition(
+            area_id,
+            name,
+            proj_id,
+            proj_dict,
+            x_size,
+            y_size,
+            area_extent)
+    context.area_def = area_def
 
 @given(u'timestamp is available')
 def step_impl(context):
