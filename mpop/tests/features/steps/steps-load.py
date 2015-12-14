@@ -138,12 +138,13 @@ def step_impl(context):
 
 @given(u'timestamp is available')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Given timestamp is available')
-
+    from datetime import datetime
+    context.timestamp = datetime(2008, 9, 10, 11, 12)
 
 @when(u'user loads the data, coordinates, timestamp and area definition')
 def step_impl(context):
     raise NotImplementedError(u'STEP: When user loads the data, coordinates, timestamp and area definition')
+
 
 @then(u'scene is resampleable')
 def step_impl(context):
